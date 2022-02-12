@@ -43,6 +43,8 @@ const options: ApexOptions = {
 };
 const series1 = [{ name: "series1", data: [31, 120, 10, 28, 51, 118, 59] }];
 const series2 = [{ name: "series2", data: [50, 180, 40, 72, 200, 90, 98] }];
+const series3 = [{ name: "series3", data: [20, 380, 40, 700, 200, 50, 88] }];
+const series4 = [{ name: "series4", data: [10, 130, 40, 92, 190, 44, 108] }];
 
 export default function Dashboard() {
   return (
@@ -52,10 +54,10 @@ export default function Dashboard() {
       <Flex width="100%" my="6" maxWidth={1480} mx="auto" px="6">
         <Sidebar />
 
-        <SimpleGrid flex="1" gap="4" minChildWidth="320px">
-          <Box p="8" bg="gray.800" borderRadius={8} pb="4">
+        <SimpleGrid flex="1" gap="4" minChildWidth="420px">
+          <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
             <Text fontSize="lg" mb="4">
-              Inscritos da semana
+              Visualizações da semana
             </Text>
             <Chart
               type="area"
@@ -65,15 +67,38 @@ export default function Dashboard() {
             />
           </Box>
 
-          <Box p="8" bg="gray.800" borderRadius={8} pb="4">
+          <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
             <Text fontSize="lg" mb="4">
-              Taxa de abertura
+              Inscritos da semana
             </Text>
             <Chart
               type="area"
               height={160}
               options={options}
               series={series2}
+            />
+          </Box>
+          <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
+            <Text fontSize="lg" mb="4">
+              Comentários
+            </Text>
+            <Chart
+              type="area"
+              height={160}
+              options={options}
+              series={series3}
+            />
+          </Box>
+
+          <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
+            <Text fontSize="lg" mb="4">
+              Curtidas
+            </Text>
+            <Chart
+              type="area"
+              height={160}
+              options={options}
+              series={series4}
             />
           </Box>
         </SimpleGrid>
