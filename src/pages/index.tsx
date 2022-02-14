@@ -1,14 +1,23 @@
 import { Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import { Input } from "../components/Form/Input";
 import { SubmitHandler, useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 type SignInFormData = {
   email: string;
   password: string;
 };
 
+const signInFormSchema = yup.object().shape({
+  email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
+  password: yup.string().required("Campo obrigatório"),
+});
+
 export default function SignIn() {
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver(signInFormSchema),
+  });
   const { errors } = formState;
 
   const handleSignIn: SubmitHandler<SignInFormData> = async (values, event) => {
@@ -28,6 +37,7 @@ export default function SignIn() {
         Dashgo
         <Text color="pink.500">.</Text>
       </Heading>
+
       <Flex
         as="form"
         w="100%"
@@ -43,12 +53,14 @@ export default function SignIn() {
             type="email"
             name="email"
             label="E-mail"
+            error={errors.email}
             {...register("email")}
           />
           <Input
             type="password"
             name="password"
             label="Senha"
+            error={errors.password}
             {...register("password")}
           />
         </Stack>
@@ -57,7 +69,7 @@ export default function SignIn() {
           mt={6}
           colorScheme="pink"
           size="lg"
-          isLoading={formState.isSubmitted}
+          isLoading={formState.isSubmitting}
         >
           Acessar
         </Button>
