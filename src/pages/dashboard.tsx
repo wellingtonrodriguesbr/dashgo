@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Box, Flex, SimpleGrid, Text, theme } from "@chakra-ui/react";
 import { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
@@ -48,61 +49,66 @@ const series4 = [{ name: "series4", data: [10, 130, 40, 92, 190, 44, 108] }];
 
 export default function Dashboard() {
   return (
-    <Flex direction="column" h="100vh">
-      <Header />
+    <>
+      <Head>
+        <title>Dashboard | Dashgo.</title>
+      </Head>
+      <Flex direction="column" h="100vh">
+        <Header />
 
-      <Flex width="100%" my="6" maxWidth={1480} mx="auto" px="6">
-        <Sidebar />
+        <Flex width="100%" my="6" maxWidth={1480} mx="auto" px="6">
+          <Sidebar />
 
-        <SimpleGrid flex="1" gap="4" minChildWidth="420px">
-          <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
-            <Text fontSize="lg" mb="4">
-              Visualizações da semana
-            </Text>
-            <Chart
-              type="area"
-              height={160}
-              options={options}
-              series={series1}
-            />
-          </Box>
+          <SimpleGrid flex="1" gap="4" minChildWidth="420px">
+            <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
+              <Text fontSize="lg" mb="4">
+                Visualizações da semana
+              </Text>
+              <Chart
+                type="area"
+                height={160}
+                options={options}
+                series={series1}
+              />
+            </Box>
 
-          <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
-            <Text fontSize="lg" mb="4">
-              Inscritos da semana
-            </Text>
-            <Chart
-              type="area"
-              height={160}
-              options={options}
-              series={series2}
-            />
-          </Box>
-          <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
-            <Text fontSize="lg" mb="4">
-              Comentários
-            </Text>
-            <Chart
-              type="area"
-              height={160}
-              options={options}
-              series={series3}
-            />
-          </Box>
+            <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
+              <Text fontSize="lg" mb="4">
+                Inscritos da semana
+              </Text>
+              <Chart
+                type="area"
+                height={160}
+                options={options}
+                series={series2}
+              />
+            </Box>
+            <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
+              <Text fontSize="lg" mb="4">
+                Comentários
+              </Text>
+              <Chart
+                type="area"
+                height={160}
+                options={options}
+                series={series3}
+              />
+            </Box>
 
-          <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
-            <Text fontSize="lg" mb="4">
-              Curtidas
-            </Text>
-            <Chart
-              type="area"
-              height={160}
-              options={options}
-              series={series4}
-            />
-          </Box>
-        </SimpleGrid>
+            <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
+              <Text fontSize="lg" mb="4">
+                Curtidas
+              </Text>
+              <Chart
+                type="area"
+                height={160}
+                options={options}
+                series={series4}
+              />
+            </Box>
+          </SimpleGrid>
+        </Flex>
       </Flex>
-    </Flex>
+    </>
   );
 }
