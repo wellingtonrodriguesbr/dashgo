@@ -1,5 +1,4 @@
 import { useQuery } from "react-query";
-import { StringDecoder } from "string_decoder";
 import { api } from "../api";
 
 type User = {
