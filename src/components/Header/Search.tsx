@@ -10,7 +10,7 @@ export function Search() {
       px="8"
       ml="6"
       maxWidth={400}
-      alignSelf="center"
+      align="center"
       color="gray.200"
       position="relative"
       bg="gray.800"
