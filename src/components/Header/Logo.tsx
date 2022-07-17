@@ -7,13 +7,14 @@ export function Logo() {
       <Text
         fontSize={["2xl", "3xl"]}
         fontWeight="bold"
-        display="flex"
         letterSpacing="tight"
         w="64"
         cursor="pointer"
       >
         Dashgo
-        <Text color="pink.500">.</Text>
+        <Text as="span" color="pink.500">
+          .
+        </Text>
       </Text>
     </Link>
   );
