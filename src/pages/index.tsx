@@ -21,11 +21,11 @@ export default function SignIn() {
     resolver: yupResolver(signInFormSchema),
   });
   const { errors } = formState;
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSignIn: SubmitHandler<SignInFormData> = async (values, event) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    router.push('/dashboard')
+    router.push("/dashboard");
   };
 
   return (

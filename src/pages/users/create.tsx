@@ -108,7 +108,7 @@ export default function CreateUser() {
               </SimpleGrid>
             </VStack>
 
-            <Flex mt="8" justify="flex-end">
+            <Flex mt="8" justify={["center", "flex-end"]}>
               <HStack spacing="4">
                 <Link href="/users" passHref>
                   <Button as="a" colorScheme="whiteAlpha">

@@ -43,7 +43,7 @@ export default function UserList() {
 
         <Flex width="100%" my="6" maxWidth={1480} mx="auto" px="6">
           <Sidebar />
-          <Box flex="1" borderRadius="8" bg="gray.800" p="8">
+          <Box flex="1" borderRadius="8" bg="gray.800" p="8" w="100%">
             <Flex mb="8" justify="space-between" align="center">
               <Heading size="lg" fontWeight="normal">
                 Usúarios
@@ -72,33 +72,31 @@ export default function UserList() {
               </Flex>
             ) : (
               <>
-                <Table colorScheme="whiteAlpha">
+                <Table colorScheme="whiteAlpha" maxWidth="100%">
                   <Thead>
                     <Tr>
-                      <Th px={["4", "4", "6"]} color="gray.300" width="8">
+                      <Th color="gray.300">
                         <Checkbox colorScheme="pink" />
                       </Th>
-                      <Th>Usúario</Th>
-                      {isWideVersion && <Th>Data de cadastro</Th>}
+                      <Th px="0">Usúario</Th>
+                      {isWideVersion && <Th px="0">Data de cadastro</Th>}
                       <Th></Th>
                     </Tr>
                   </Thead>
                   <Tbody>
                     {data?.users.map((user) => (
                       <Tr key={user.id}>
-                        <Td px={["4", "4", "6"]}>
+                        <Td>
                           <Checkbox colorScheme="pink" />
                         </Td>
-                        <Td>
-                          <Box>
-                            <Text fontWeight="bold">{user.name}</Text>
-                            <Text fontSize="small" color="gray.300">
-                              {user.email}
-                            </Text>
-                          </Box>
+                        <Td px="0">
+                          <Text fontWeight="bold">{user.name}</Text>
+                          <Text fontSize="small" color="gray.300">
+                            {user.email}
+                          </Text>
                         </Td>
-                        {isWideVersion && <Td>{user.createdAt}</Td>}
-                        <Td>
+                        {isWideVersion && <Td px="0">{user.createdAt}</Td>}
+                        <Td px="0">
                           <Button
                             as="a"
                             size="sm"

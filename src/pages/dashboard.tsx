@@ -56,10 +56,10 @@ export default function Dashboard() {
       <Flex direction="column" h="100vh">
         <Header />
 
-        <Flex width="100%" my="6" maxWidth={1480} mx="auto" px="6">
+        <Flex width="100%" py="6" maxWidth={1480} mx="auto" px="6">
           <Sidebar />
 
-          <SimpleGrid flex="1" gap="4" minChildWidth="420px">
+          <SimpleGrid flex="1" gap="4" minChildWidth={["100%", "420px"]}>
             <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
               <Text fontSize="lg" mb="4">
                 Visualizações da semana
