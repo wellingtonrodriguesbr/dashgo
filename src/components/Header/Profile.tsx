@@ -1,7 +1,7 @@
 import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
 
 interface ProfileProps {
-  isWideVersion?: boolean;
+  isWideVersion: boolean;
 }
 
 export function Profile({ isWideVersion = true }: ProfileProps) {
