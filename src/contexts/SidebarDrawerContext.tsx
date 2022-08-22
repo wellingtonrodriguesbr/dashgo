@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import {
   createContext,
   ReactNode,
-  useCallback,
   useContext,
   useEffect,
 } from "react";
@@ -23,8 +22,8 @@ export function SidebarDrawerProvider({
   const { asPath } = useRouter();
 
   useEffect(() => {
-    disclosure.onClose();
-  }, [asPath]);
+    disclosure.onToggle
+  }, [asPath, disclosure]);
 
   return (
     <SidebarDrawerContext.Provider value={disclosure}>
