@@ -67,7 +67,7 @@ export default function CreateUser() {
             flex="1"
             borderRadius="8"
             bg="gray.800"
-            p="8"
+            p={["6", "8"]}
             onSubmit={handleSubmit(handleCreateUser)}
           >
             <Heading size="lg" fontWeight="normal">
@@ -76,7 +76,7 @@ export default function CreateUser() {
             <Divider my="6" borderColor="gray.700" />
 
             <VStack spacing="8">
-              <SimpleGrid minChildWidth="240px" spacing="8" width="100%">
+              <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} width="100%">
                 <Input
                   name="name"
                   label="Nome completo"
@@ -91,7 +91,7 @@ export default function CreateUser() {
                 />
               </SimpleGrid>
 
-              <SimpleGrid minChildWidth="240px" spacing="8" width="100%">
+              <SimpleGrid minChildWidth="240px" spacing={["6", "8"]}width="100%">
                 <Input
                   name="password"
                   type="password"
