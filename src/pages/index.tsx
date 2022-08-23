@@ -1,10 +1,10 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import { Input } from "../components/Form/Input";
 import { SubmitHandler, useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useRouter } from "next/router";
+import * as yup from "yup";
 
 type SignInFormData = {
   email: string;
@@ -17,11 +17,14 @@ const signInFormSchema = yup.object().shape({
 });
 
 export default function SignIn() {
-  const { register, handleSubmit, formState } = useForm({
+  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm({
     resolver: yupResolver(signInFormSchema),
   });
-  const { errors } = formState;
-  const router = useRouter();
 
   const handleSignIn: SubmitHandler<SignInFormData> = async (values, event) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -36,6 +39,7 @@ export default function SignIn() {
       <Flex
         w="100vw"
         h="100vh"
+        px={4}
         alignItems="center"
         justifyContent="center"
         flexDir="column"
@@ -76,7 +80,7 @@ export default function SignIn() {
             mt={6}
             colorScheme="pink"
             size="lg"
-            isLoading={formState.isSubmitting}
+            isLoading={isSubmitting}
           >
             Acessar
           </Button>
